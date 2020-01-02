@@ -10,7 +10,7 @@ namespace Backpropagation.NET.Models.ActivationFunctions
             return (1 / (1 + Math.Exp(-input)));
         }
 
-        public double InvokeForDerivate(double input)
+        public double InvokeForDerivative(double input)
         {
             return Invoke(input) * (1 - Invoke(input));
         }

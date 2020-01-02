@@ -38,7 +38,7 @@ namespace Backpropagation.NET.Models.Neurons
 
         public void CalculateDeltaError(IErrorFunction errorFunction, double expectedOutput)
         {
-            _deltaError = errorFunction.InvokeForDerivate(Output, expectedOutput) * _activationFunction.InvokeForDerivate(NetOutput);
+            _deltaError = errorFunction.InvokeForDerivate(Output, expectedOutput) * _activationFunction.InvokeForDerivative(NetOutput);
         }
     }
 }

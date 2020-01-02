@@ -4,6 +4,6 @@
     {
         double Invoke(double input);
 
-        double InvokeForDerivate(double input);
+        double InvokeForDerivative(double input);
     }
 }

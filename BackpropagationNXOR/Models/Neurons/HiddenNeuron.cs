@@ -44,7 +44,7 @@ namespace Backpropagation.NET.Models.Neurons
                 var outputNeuron = neuronConnection.Destination as IOutputNeuron;
                 derrivateOfTotalErrorToNeuronOutput += outputNeuron.DeltaError * neuronConnection.Weight;
             }
-            _deltaError = derrivateOfTotalErrorToNeuronOutput * _activationFunction.InvokeForDerivate(NetOutput);
+            _deltaError = derrivateOfTotalErrorToNeuronOutput * _activationFunction.InvokeForDerivative(NetOutput);
         }
     }
 }
