@@ -1,7 +1,7 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
 
 namespace BackpropagationNXOR.Models.ErrorFunctions
 {

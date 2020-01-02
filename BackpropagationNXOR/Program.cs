@@ -3,9 +3,10 @@ using BackpropagationNXOR.Helpers;
 using BackpropagationNXOR.Models;
 using BackpropagationNXOR.Models.ErrorFunctions;
 using BackpropagationNXOR.Models.Neurons;
-using BackpropagationNXOR.Models.Training;
 using System;
 using System.Linq;
+using BackpropagationNXOR.Models.ActivationFunctions;
+using BackpropagationNXOR.Training;
 
 namespace BackpropagationNXOR
 {
@@ -28,7 +29,7 @@ namespace BackpropagationNXOR
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ 0, 0 },new double [] { 1 } ),
-                new TrainData(new double []{ 1, 0 },new double [] { 0 } ),
+                new TrainData(new double []{ 0, 0 },new double [] { 0 } ),
                 new TrainData(new double []{ 0, 1 },new double [] { 0 } ),
                 new TrainData(new double []{ 1, 1 },new double [] { 1 } ),
             };
@@ -41,6 +42,8 @@ namespace BackpropagationNXOR
                 var output = network.CalculateOutput();
                 Console.WriteLine($"F({string.Join(",", trainData.Inputs)})=({string.Join(",",output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
             }
+
+
             Console.ReadKey();
         }
     }

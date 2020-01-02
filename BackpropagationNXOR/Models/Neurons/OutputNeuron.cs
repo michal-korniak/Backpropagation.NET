@@ -1,13 +1,11 @@
-﻿using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models.Abstract;
-using BackpropagationNXOR.Models.Neurons;
-using BackpropagationNXOR.Models.Neurons.Abstract;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
+using BackpropagationNXOR.Models.Connections.Abstract.Base;
+using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
+using BackpropagationNXOR.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models
+namespace BackpropagationNXOR.Models.Neurons
 {
     public class OutputNeuron : IOutputNeuron
     {

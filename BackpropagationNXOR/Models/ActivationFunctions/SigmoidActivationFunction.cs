@@ -1,9 +1,7 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
 
-namespace BackpropagationNXOR.Models
+namespace BackpropagationNXOR.Models.ActivationFunctions
 {
     class SigmoidActivationFunction : IActivationFunction
     {

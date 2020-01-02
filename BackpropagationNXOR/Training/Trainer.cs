@@ -1,10 +1,10 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using BackpropagationNXOR.Models.Connections;
-using BackpropagationNXOR.Models.Neurons.Abstract.BaseInterfaces;
-using System;
+﻿using System;
 using System.Linq;
+using BackpropagationNXOR.Models;
+using BackpropagationNXOR.Models.Connections.Abstract;
+using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Training
+namespace BackpropagationNXOR.Training
 {
     class Trainer
     {

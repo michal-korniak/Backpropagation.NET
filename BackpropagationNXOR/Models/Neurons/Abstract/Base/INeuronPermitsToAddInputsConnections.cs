@@ -1,9 +1,7 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using BackpropagationNXOR.Models.Connections.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Neurons.Abstract
+namespace BackpropagationNXOR.Models.Neurons.Abstract.Base
 {
     public interface INeuronPermitsToAddInputsConnections : INeuron
     {

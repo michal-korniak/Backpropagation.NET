@@ -1,10 +1,10 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using BackpropagationNXOR.Models.Neurons;
+﻿using BackpropagationNXOR.Models.Neurons;
 using BackpropagationNXOR.Models.Neurons.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
 
 namespace BackpropagationNXOR.Models
 {

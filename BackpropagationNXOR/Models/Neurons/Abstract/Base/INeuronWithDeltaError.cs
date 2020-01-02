@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BackpropagationNXOR.Models.Neurons.Abstract.BaseInterfaces
+﻿namespace BackpropagationNXOR.Models.Neurons.Abstract.Base
 {
     public interface INeuronWithDeltaError: INeuron
     {

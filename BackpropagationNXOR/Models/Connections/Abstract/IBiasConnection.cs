@@ -1,10 +1,8 @@
-﻿using BackpropagationNXOR.Models.Abstract;
-using BackpropagationNXOR.Models.Neurons;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using BackpropagationNXOR.Models.Connections.Abstract.Base;
+using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Connections
+namespace BackpropagationNXOR.Models.Connections.Abstract
 {
     public interface IBiasConnection: IConnection
     {

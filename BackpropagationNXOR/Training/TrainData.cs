@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BackpropagationNXOR.Models
+﻿namespace BackpropagationNXOR.Training
 {
     public class TrainData
     {

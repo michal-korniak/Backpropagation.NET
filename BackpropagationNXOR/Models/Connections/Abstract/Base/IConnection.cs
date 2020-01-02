@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BackpropagationNXOR.Models.Abstract
+﻿namespace BackpropagationNXOR.Models.Connections.Abstract.Base
 {
     public interface IConnection
     {

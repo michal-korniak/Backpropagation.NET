@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using BackpropagationNXOR.Models.Connections;
-using BackpropagationNXOR.Models.Neurons;
-using BackpropagationNXOR.Services;
+using BackpropagationNXOR.Helpers;
+using BackpropagationNXOR.Models.Connections.Abstract;
+using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models
+namespace BackpropagationNXOR.Models.Connections
 {
     class BiasConnection : IBiasConnection
     {
