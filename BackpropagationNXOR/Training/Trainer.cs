@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Backpropagation.NET.Loggers.Abstract;
 using Backpropagation.NET.Models.Connections.Abstract;
 using Backpropagation.NET.Models.NeuralNetwork.Abstract;
 using Backpropagation.NET.Models.Neurons.Abstract.Base;
@@ -10,11 +11,13 @@ namespace Backpropagation.NET.Training
     {
         private readonly INeuralNetwork _network;
         private readonly double _learningRate;
+        private readonly ILogger _logger;
 
-        public Trainer(INeuralNetwork neuralNetwork, double learningRate)
+        public Trainer(INeuralNetwork neuralNetwork, double learningRate, ILogger logger)
         {
             _network = neuralNetwork;
             _learningRate = learningRate;
+            _logger = logger;
         }
 
         public void Train(TrainData[] trainDataCollection, int numberOfEpochs, double terminalEpochError)
@@ -24,7 +27,7 @@ namespace Backpropagation.NET.Training
             for (int i = 0; i < numberOfEpochs; ++i)
             {
                 var epochError = TrainForSingleEpoch(trainDataCollection);
-                Console.WriteLine($"Epoch {i+1}, error: {epochError}");
+                _logger.Info($"Epoch {i+1}, error: {epochError}");
                 if (epochError <= terminalEpochError)
                 {
                     break;

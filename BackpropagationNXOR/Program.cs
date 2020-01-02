@@ -1,5 +1,6 @@
 ﻿using System;
 using Backpropagation.NET.Builders;
+using Backpropagation.NET.Loggers;
 using Backpropagation.NET.Models.ActivationFunctions;
 using Backpropagation.NET.Models.ErrorFunctions;
 using Backpropagation.NET.Training;
@@ -21,7 +22,7 @@ namespace Backpropagation.NET
                 .Build();
 
 
-            var trainer = new Trainer(network, 0.1);
+            var trainer = new Trainer(network, 0.1, new ConsoleLogger());
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ 0, 0 },new double [] { 1 } ),
