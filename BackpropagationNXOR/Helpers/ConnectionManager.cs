@@ -1,7 +1,5 @@
-﻿using BackpropagationNXOR.Models;
-using BackpropagationNXOR.Models.Connections;
+﻿using BackpropagationNXOR.Models.Connections;
 using BackpropagationNXOR.Models.Connections.Abstract;
-using BackpropagationNXOR.Models.Neurons.Abstract;
 using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
 namespace BackpropagationNXOR.Helpers

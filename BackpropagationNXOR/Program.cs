@@ -1,10 +1,6 @@
 ﻿using BackpropagationNXOR.Builders;
-using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models;
 using BackpropagationNXOR.Models.ErrorFunctions;
-using BackpropagationNXOR.Models.Neurons;
 using System;
-using System.Linq;
 using BackpropagationNXOR.Models.ActivationFunctions;
 using BackpropagationNXOR.Training;
 

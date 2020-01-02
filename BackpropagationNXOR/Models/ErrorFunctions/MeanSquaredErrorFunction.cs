@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
 
 namespace BackpropagationNXOR.Models.ErrorFunctions

@@ -1,5 +1,4 @@
-﻿using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models.Neurons.Abstract;
+﻿using BackpropagationNXOR.Models.Neurons.Abstract;
 using System.Collections.Generic;
 using BackpropagationNXOR.Models.Connections.Abstract.Base;
 
@@ -8,7 +7,7 @@ namespace BackpropagationNXOR.Models.Neurons
     public class InputNeuron : IInputNeuron
     {
         public double Output { get; set; }
-        private List<IConnection> _outputsConnections = new List<IConnection>();
+        private readonly List<IConnection> _outputsConnections = new List<IConnection>();
 
         public IEnumerable<IConnection> OutputConnections => _outputsConnections;
 

@@ -9,8 +9,8 @@ namespace BackpropagationNXOR.Models.Neurons
 {
     public class OutputNeuron : IOutputNeuron
     {
-        private IActivationFunction _activationFunction;
-        private List<IConnection> _inputConnections = new List<IConnection>();
+        private readonly IActivationFunction _activationFunction;
+        private readonly List<IConnection> _inputConnections = new List<IConnection>();
         private double _error;
         private double _deltaError;
 
@@ -31,7 +31,7 @@ namespace BackpropagationNXOR.Models.Neurons
             _inputConnections.Add(connection);
         }
 
-        public void CalcualteError(IErrorFunction errorFunction, double expectedOutput)
+        public void CalculateError(IErrorFunction errorFunction, double expectedOutput)
         {
             _error = errorFunction.Invoke(Output, expectedOutput);
         }

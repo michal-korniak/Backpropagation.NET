@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
+﻿using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
 using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
 namespace BackpropagationNXOR.Models.Neurons.Abstract
@@ -15,7 +12,7 @@ namespace BackpropagationNXOR.Models.Neurons.Abstract
         public double Error { get; }
 
 
-        void CalcualteError(IErrorFunction errorFunction, double expectedOutput);
+        void CalculateError(IErrorFunction errorFunction, double expectedOutput);
         void CalculateDeltaError(IErrorFunction errorFunction, double expectedOutput);
     }
 }

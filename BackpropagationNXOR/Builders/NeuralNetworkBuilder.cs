@@ -1,12 +1,11 @@
 ﻿using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models;
 using BackpropagationNXOR.Models.Neurons;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
 using BackpropagationNXOR.Models.Connections;
 using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
+using BackpropagationNXOR.Models.NeuralNetwork;
 
 namespace BackpropagationNXOR.Builders
 {

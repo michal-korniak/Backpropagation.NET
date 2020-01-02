@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Linq;
-using BackpropagationNXOR.Models;
 using BackpropagationNXOR.Models.Connections.Abstract;
+using BackpropagationNXOR.Models.NeuralNetwork.Abstract;
 using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
 namespace BackpropagationNXOR.Training
 {
     class Trainer
     {
-        private readonly NeuralNetwork _network;
+        private readonly INeuralNetwork _network;
         private readonly double _learningRate;
 
-        public Trainer(NeuralNetwork neuralNetwork, double learningRate)
+        public Trainer(INeuralNetwork neuralNetwork, double learningRate)
         {
             _network = neuralNetwork;
             _learningRate = learningRate;
@@ -70,7 +70,7 @@ namespace BackpropagationNXOR.Training
                 var outputNeuron = _network.OutputLayer.ElementAt(i);
                 var expectedOutput = expectedOutputs[i];
 
-                outputNeuron.CalcualteError(_network.ErrorFunction, expectedOutput);
+                outputNeuron.CalculateError(_network.ErrorFunction, expectedOutput);
                 outputNeuron.CalculateDeltaError(_network.ErrorFunction, expectedOutput);
             }
         }

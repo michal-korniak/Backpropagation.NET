@@ -1,23 +1,22 @@
-﻿using BackpropagationNXOR.Models.Neurons;
-using BackpropagationNXOR.Models.Neurons.Abstract;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
+using BackpropagationNXOR.Models.NeuralNetwork.Abstract;
+using BackpropagationNXOR.Models.Neurons;
+using BackpropagationNXOR.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models
+namespace BackpropagationNXOR.Models.NeuralNetwork
 {
-    public class NeuralNetwork
+    public class NeuralNetwork : INeuralNetwork
     {
         public IEnumerable<IInputNeuron> InputLayer => _inputLayer;
         public IEnumerable<IHiddenNeuron> HiddenLayer => _hiddenLayer;
         public IEnumerable<IOutputNeuron> OutputLayer => _outputLayer;
         public IErrorFunction ErrorFunction { get; }
 
-        private List<InputNeuron> _inputLayer = new List<InputNeuron>();
-        private List<HiddenNeuron> _hiddenLayer = new List<HiddenNeuron>();
-        private List<OutputNeuron> _outputLayer = new List<OutputNeuron>();
+        private readonly List<InputNeuron> _inputLayer = new List<InputNeuron>();
+        private readonly List<HiddenNeuron> _hiddenLayer = new List<HiddenNeuron>();
+        private readonly List<OutputNeuron> _outputLayer = new List<OutputNeuron>();
 
         public NeuralNetwork(IErrorFunction errorFunction, List<InputNeuron> inputLayer, List<HiddenNeuron> hiddenLayer, List<OutputNeuron> outputLayer)
         {

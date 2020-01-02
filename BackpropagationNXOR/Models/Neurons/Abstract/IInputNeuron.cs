@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using BackpropagationNXOR.Models.Neurons.Abstract.Base;
+﻿using BackpropagationNXOR.Models.Neurons.Abstract.Base;
 
 namespace BackpropagationNXOR.Models.Neurons.Abstract
 {

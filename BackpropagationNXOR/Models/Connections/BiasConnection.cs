@@ -7,7 +7,7 @@ namespace BackpropagationNXOR.Models.Connections
 {
     class BiasConnection : IBiasConnection
     {
-        private List<INeuron> _destinationNeurons = new List<INeuron>();
+        private readonly List<INeuron> _destinationNeurons = new List<INeuron>();
 
         public double Output => Weight;
         public double Input => 1;

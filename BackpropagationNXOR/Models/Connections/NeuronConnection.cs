@@ -6,8 +6,8 @@ namespace BackpropagationNXOR.Models.Connections
 {
     class NeuronConnection: INeuronConnection
     {
-        private INeuron _source;
-        private INeuron _destination;
+        private readonly INeuron _source;
+        private readonly INeuron _destination;
 
         public double Weight { get; set; }
         public double Output => Weight * _source.Output;

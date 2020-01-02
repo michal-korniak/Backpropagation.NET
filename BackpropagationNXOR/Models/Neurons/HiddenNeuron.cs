@@ -10,8 +10,8 @@ namespace BackpropagationNXOR.Models.Neurons
     public class HiddenNeuron : IHiddenNeuron
     {
         private readonly IActivationFunction _activationFunction;
-        private List<IConnection> _inputConnections = new List<IConnection>();
-        private List<IConnection> _outputConnections = new List<IConnection>();
+        private readonly List<IConnection> _inputConnections = new List<IConnection>();
+        private readonly List<IConnection> _outputConnections = new List<IConnection>();
         private double _deltaError;
 
         public double NetOutput => _inputConnections.Sum(x => x.Output);
