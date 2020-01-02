@@ -21,6 +21,7 @@ namespace BackpropagationNXOR.Models
         public double Output => _activationFunction.Invoke(NetOutput);
         public double Error => _error;
         public double DeltaError => _deltaError;
+        public IEnumerable<IConnection> InputConnections => _inputConnections;
 
         public OutputNeuron(IActivationFunction activationFunction)
         {
@@ -32,12 +33,12 @@ namespace BackpropagationNXOR.Models
             _inputConnections.Add(connection);
         }
 
-        public void SetError(IErrorFunction errorFunction, double expectedOutput)
+        public void CalcualteError(IErrorFunction errorFunction, double expectedOutput)
         {
             _error = errorFunction.Invoke(Output, expectedOutput);
         }
 
-        public void SetDeltaError(IErrorFunction errorFunction, double expectedOutput)
+        public void CalculateDeltaError(IErrorFunction errorFunction, double expectedOutput)
         {
             _deltaError = errorFunction.InvokeForDerivate(Output, expectedOutput) * _activationFunction.InvokeForDerivate(NetOutput);
         }

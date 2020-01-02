@@ -6,13 +6,13 @@ namespace BackpropagationNXOR.Models
 {
     public class TrainData
     {
-        public double[] Input { get;}
-        public double[] ExpectedOutput { get; }
+        public double[] Inputs { get;}
+        public double[] ExpectedOutputs { get; }
 
-        public TrainData(double[] input, double[] expectedOutput)
+        public TrainData(double[] inputs, double[] expectedOutputs)
         {
-            Input = input;
-            ExpectedOutput = expectedOutput;
+            Inputs = inputs;
+            ExpectedOutputs = expectedOutputs;
         }
     }
 }

@@ -54,7 +54,7 @@ namespace BackpropagationNXOR.Builders
             return this;
         }
 
-        public NeuralNetworkBuilder EnableBiasConnection()
+        public NeuralNetworkBuilder AddBiasConnections()
         {
             _enableBias = true;
 
@@ -72,7 +72,7 @@ namespace BackpropagationNXOR.Builders
 
             CreateConnections(inputLayer, hiddenLayer, outputLayer);
 
-            return new NeuralNetwork(_errorFunction, inputLayer, outputLayer);
+            return new NeuralNetwork(_errorFunction, inputLayer, hiddenLayer, outputLayer);
         }
 
         private void ValidateBeforeBuild()

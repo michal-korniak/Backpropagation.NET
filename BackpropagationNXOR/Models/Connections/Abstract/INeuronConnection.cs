@@ -6,9 +6,9 @@ using System.Text;
 
 namespace BackpropagationNXOR.Models.Connections
 {
-    public interface IBiasConnection: IConnection
+    public interface INeuronConnection: IConnection
     {
-        public IEnumerable<INeuron> Destinations { get; }
-        public void AddDestination(INeuron neuron);
+        public INeuron Source { get; }
+        public INeuron Destination { get; }
     }
 }

@@ -12,7 +12,7 @@ namespace BackpropagationNXOR.Helpers
     {
         public static void CreateConnection(INeuronPermitsToAddOutputsConnections source, INeuronPermitsToAddInputsConnections destination)
         {
-            var connection = new Connection(source, destination);
+            var connection = new NeuronConnection(source, destination);
             source.AddOutputConnection(connection);
             destination.AddInputConnections(connection);
         }
@@ -20,6 +20,7 @@ namespace BackpropagationNXOR.Helpers
         public static void CreateConnectionToBias(INeuronPermitsToAddInputsConnections neuron, IBiasConnection biasConnection)
         {
             neuron.AddInputConnections(biasConnection);
+            biasConnection.AddDestination(neuron);
         }
     }
 }

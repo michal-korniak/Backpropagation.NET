@@ -7,6 +7,7 @@ namespace BackpropagationNXOR.Models.Neurons.Abstract
 {
     public interface INeuronPermitsToAddInputsConnections : INeuron
     {
+        public IEnumerable<IConnection> InputConnections { get; }
         void AddInputConnections(IConnection connection);
     }
 }

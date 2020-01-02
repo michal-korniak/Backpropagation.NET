@@ -1,17 +1,21 @@
 ﻿using BackpropagationNXOR.Models.Abstract;
+using BackpropagationNXOR.Models.Neurons.Abstract.BaseInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BackpropagationNXOR.Models.Neurons.Abstract
 {
-    public interface IOutputNeuron : INeuron, INeuronPermitsToAddInputsConnections
+    public interface IOutputNeuron : INeuron, INeuronPermitsToAddInputsConnections, INeuronWithDeltaError
     {
+        /// <summary>
+        /// Sum of connections outputs
+        /// </summary>
         public double NetOutput { get; }
         public double Error { get; }
-        public double DeltaError { get; }
 
-        void SetError(IErrorFunction errorFunction, double expectedOutput);
-        void SetDeltaError(IErrorFunction errorFunction, double expectedOutput);
+
+        void CalcualteError(IErrorFunction errorFunction, double expectedOutput);
+        void CalculateDeltaError(IErrorFunction errorFunction, double expectedOutput);
     }
 }

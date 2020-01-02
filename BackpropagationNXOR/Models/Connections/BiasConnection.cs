@@ -1,20 +1,27 @@
-﻿using BackpropagationNXOR.Models.Abstract;
+﻿using System.Collections.Generic;
 using BackpropagationNXOR.Models.Connections;
+using BackpropagationNXOR.Models.Neurons;
 using BackpropagationNXOR.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BackpropagationNXOR.Models
 {
     class BiasConnection : IBiasConnection
     {
-        private readonly double _weight;
-        public double Output => _weight;
+        private List<INeuron> _destinationNeurons = new List<INeuron>();
+
+        public double Output => Weight;
+        public double Input => 1;
+        public double Weight { get; set; }
+        public IEnumerable<INeuron> Destinations => _destinationNeurons;
 
         public BiasConnection()
         {
-            _weight = RandomHelper.NextDouble();
+            Weight = RandomHelper.NextDouble();
+        }
+
+        public void AddDestination(INeuron neuron)
+        {
+            _destinationNeurons.Add(neuron);
         }
     }
 }

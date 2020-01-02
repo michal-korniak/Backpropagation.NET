@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BackpropagationNXOR.Models.Abstract;
+using BackpropagationNXOR.Models.Connections;
+using BackpropagationNXOR.Models.Neurons.Abstract.BaseInterfaces;
+using System;
 using System.Linq;
-using System.Text;
 
 namespace BackpropagationNXOR.Models.Training
 {
@@ -23,59 +24,89 @@ namespace BackpropagationNXOR.Models.Training
             for (int i = 0; i < numberOfEpochs; ++i)
             {
                 var epochError = TrainForSingleEpoch(trainDataCollection);
+                Console.WriteLine($"Epoch {i+1}, error: {epochError}");
                 if (epochError <= terminalEpochError)
                 {
                     break;
                 }
+
             }
         }
         private void ValidateTrainData(TrainData[] trainDataCollection)
         {
             foreach (var trainData in trainDataCollection)
             {
-                if (trainData.Input.Length != _network.InputLayer.Count())
+                if (trainData.Inputs.Length != _network.InputLayer.Count())
                 {
                     throw new Exception("Number of input values is not equal to number of input neurons");
                 }
-                if (trainData.ExpectedOutput.Length != _network.OutputLayer.Count())
+                if (trainData.ExpectedOutputs.Length != _network.OutputLayer.Count())
                 {
                     throw new Exception("Number of epected output values is not equal to number of output neurons");
                 }
 
             }
         }
+
         private double TrainForSingleEpoch(TrainData[] trainDataCollection)
         {
-            double epochError = 0;
+            double totalEpochError = 0;
             foreach (var trainData in trainDataCollection)
             {
-                FillInputs(trainData);
-                epochError += CalculateOutputsError(trainData);
+                _network.FillInputNeurons(trainData.Inputs);
+                HandleOutputLayer(trainData.ExpectedOutputs);
+                HandleHiddenLayer();
+                UpdateWeights();
+                totalEpochError += _network.OutputLayer.Sum(x => x.Error);
             }
-            return epochError;
+            return totalEpochError;
+
         }
 
-        private void FillInputs(TrainData trainData)
+        private void HandleOutputLayer(double[] expectedOutputs)
         {
-            for (int i = 0; i < trainData.Input.Length; ++i)
-            {
-                _network.InputLayer.ElementAt(i).Output = trainData.Input[i];
-            }
-        }
-        private double CalculateOutputsError(TrainData trainData)
-        {
-            double totalError = 0;
-            for (int i = 0; i < trainData.ExpectedOutput.Length; ++i)
+            for (int i = 0; i < expectedOutputs.Length; ++i)
             {
                 var outputNeuron = _network.OutputLayer.ElementAt(i);
-                var expectedOutput = trainData.ExpectedOutput[i];
+                var expectedOutput = expectedOutputs[i];
 
-                outputNeuron.SetError(_network.ErrorFunction, expectedOutput);
-                outputNeuron.SetDeltaError(_network.ErrorFunction, expectedOutput);
-                totalError += outputNeuron.Error;
+                outputNeuron.CalcualteError(_network.ErrorFunction, expectedOutput);
+                outputNeuron.CalculateDeltaError(_network.ErrorFunction, expectedOutput);
             }
+        }
+        private void HandleHiddenLayer()
+        {
+            foreach (var hiddenNeuron in _network.HiddenLayer)
+            {
+                hiddenNeuron.CalculateDeltaError();
+            }
+        }
 
-            return totalError;
+        private void UpdateWeights()
+        {
+            var connectionsInNetwork = _network.OutputLayer.SelectMany(x => x.InputConnections).Concat(_network.HiddenLayer.SelectMany(x => x.InputConnections));
+            foreach (var connection in connectionsInNetwork)
+            {
+                if (connection is INeuronConnection neuronConnection)
+                {
+                    UpdateNeuronConnectionWeight(neuronConnection);
+                }
+                else if (connection is IBiasConnection biasConnection)
+                {
+                    UpdateBiasConnectionWeight(biasConnection);
+                }
+            }
+        }
+        private void UpdateBiasConnectionWeight(IBiasConnection biasConnection)
+        {
+            var derivatateOfTotalErrorToWeight = biasConnection.Destinations.Select(x => x as INeuronWithDeltaError).Sum(x => x.DeltaError);
+            biasConnection.Weight -= _learningRate * derivatateOfTotalErrorToWeight;
+        }
+        private void UpdateNeuronConnectionWeight(INeuronConnection neuronConnection)
+        {
+            var destinationNeuron = neuronConnection.Destination as INeuronWithDeltaError;
+            var derivatateOfTotalErrorToWeight = neuronConnection.Input * destinationNeuron.DeltaError;
+            neuronConnection.Weight -= _learningRate * derivatateOfTotalErrorToWeight;
         }
     }
 }
