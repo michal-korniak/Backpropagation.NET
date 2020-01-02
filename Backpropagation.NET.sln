@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackpropagationNXOR", "BackpropagationNXOR\BackpropagationNXOR.csproj", "{445CD51E-B2F8-4F81-9B4B-5A91181257D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backpropagation.NET", "BackpropagationNXOR\Backpropagation.NET.csproj", "{445CD51E-B2F8-4F81-9B4B-5A91181257D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
