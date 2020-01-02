@@ -25,7 +25,7 @@ namespace BackpropagationNXOR
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ 0, 0 },new double [] { 1 } ),
-                new TrainData(new double []{ 0, 0 },new double [] { 0 } ),
+                new TrainData(new double []{ 1, 0 },new double [] { 0 } ),
                 new TrainData(new double []{ 0, 1 },new double [] { 0 } ),
                 new TrainData(new double []{ 1, 1 },new double [] { 1 } ),
             };
