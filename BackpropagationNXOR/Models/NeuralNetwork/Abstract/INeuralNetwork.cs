@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
-using BackpropagationNXOR.Models.Neurons.Abstract;
+using Backpropagation.NET.Models.ErrorFunctions.Abstract;
+using Backpropagation.NET.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models.NeuralNetwork.Abstract
+namespace Backpropagation.NET.Models.NeuralNetwork.Abstract
 {
     public interface INeuralNetwork
     {

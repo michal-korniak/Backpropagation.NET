@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using BackpropagationNXOR.Models.Connections.Abstract.Base;
-using BackpropagationNXOR.Models.Neurons.Abstract.Base;
+using Backpropagation.NET.Models.Connections.Abstract.Base;
+using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Connections.Abstract
+namespace Backpropagation.NET.Models.Connections.Abstract
 {
     public interface IBiasConnection: IConnection
     {

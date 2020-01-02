@@ -1,4 +1,4 @@
-﻿namespace BackpropagationNXOR.Models.ErrorFunctions.Abstract
+﻿namespace Backpropagation.NET.Models.ErrorFunctions.Abstract
 {
     public interface IErrorFunction
     {

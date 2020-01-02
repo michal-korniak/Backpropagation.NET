@@ -1,8 +1,8 @@
-﻿using BackpropagationNXOR.Models.Neurons.Abstract;
-using System.Collections.Generic;
-using BackpropagationNXOR.Models.Connections.Abstract.Base;
+﻿using System.Collections.Generic;
+using Backpropagation.NET.Models.Connections.Abstract.Base;
+using Backpropagation.NET.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models.Neurons
+namespace Backpropagation.NET.Models.Neurons
 {
     public class InputNeuron : IInputNeuron
     {

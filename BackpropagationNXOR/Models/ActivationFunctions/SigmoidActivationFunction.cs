@@ -1,7 +1,7 @@
 ﻿using System;
-using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
+using Backpropagation.NET.Models.ActivationFunctions.Abstract;
 
-namespace BackpropagationNXOR.Models.ActivationFunctions
+namespace Backpropagation.NET.Models.ActivationFunctions
 {
     class SigmoidActivationFunction : IActivationFunction
     {

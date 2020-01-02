@@ -1,10 +1,10 @@
-﻿using BackpropagationNXOR.Builders;
-using BackpropagationNXOR.Models.ErrorFunctions;
-using System;
-using BackpropagationNXOR.Models.ActivationFunctions;
-using BackpropagationNXOR.Training;
+﻿using System;
+using Backpropagation.NET.Builders;
+using Backpropagation.NET.Models.ActivationFunctions;
+using Backpropagation.NET.Models.ErrorFunctions;
+using Backpropagation.NET.Training;
 
-namespace BackpropagationNXOR
+namespace Backpropagation.NET
 {
     class Program
     {
@@ -29,7 +29,7 @@ namespace BackpropagationNXOR
                 new TrainData(new double []{ 0, 1 },new double [] { 0 } ),
                 new TrainData(new double []{ 1, 1 },new double [] { 1 } ),
             };
-            trainer.Train(trainDataCollection, 100000, 0.001);
+            trainer.Train(trainDataCollection, 40000, 0.001);
 
 
             foreach(var trainData in trainDataCollection)

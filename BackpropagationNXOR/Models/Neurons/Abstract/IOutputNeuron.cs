@@ -1,7 +1,7 @@
-﻿using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
-using BackpropagationNXOR.Models.Neurons.Abstract.Base;
+﻿using Backpropagation.NET.Models.ErrorFunctions.Abstract;
+using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Neurons.Abstract
+namespace Backpropagation.NET.Models.Neurons.Abstract
 {
     public interface IOutputNeuron : INeuron, INeuronPermitsToAddInputsConnections, INeuronWithDeltaError
     {

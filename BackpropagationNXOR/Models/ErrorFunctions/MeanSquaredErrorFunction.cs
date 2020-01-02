@@ -1,7 +1,7 @@
 ﻿using System;
-using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
+using Backpropagation.NET.Models.ErrorFunctions.Abstract;
 
-namespace BackpropagationNXOR.Models.ErrorFunctions
+namespace Backpropagation.NET.Models.ErrorFunctions
 {
     class MeanSquaredErrorFunction : IErrorFunction
     {

@@ -1,8 +1,8 @@
-﻿using BackpropagationNXOR.Models.Connections;
-using BackpropagationNXOR.Models.Connections.Abstract;
-using BackpropagationNXOR.Models.Neurons.Abstract.Base;
+﻿using Backpropagation.NET.Models.Connections;
+using Backpropagation.NET.Models.Connections.Abstract;
+using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Helpers
+namespace Backpropagation.NET.Helpers
 {
     public static class ConnectionManager
     {

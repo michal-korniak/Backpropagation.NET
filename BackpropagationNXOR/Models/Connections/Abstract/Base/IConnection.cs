@@ -1,4 +1,4 @@
-﻿namespace BackpropagationNXOR.Models.Connections.Abstract.Base
+﻿namespace Backpropagation.NET.Models.Connections.Abstract.Base
 {
     public interface IConnection
     {

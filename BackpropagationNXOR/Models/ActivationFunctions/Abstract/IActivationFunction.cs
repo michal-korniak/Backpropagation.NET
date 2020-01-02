@@ -1,4 +1,4 @@
-﻿namespace BackpropagationNXOR.Models.ActivationFunctions.Abstract
+﻿namespace Backpropagation.NET.Models.ActivationFunctions.Abstract
 {
     public interface IActivationFunction
     {

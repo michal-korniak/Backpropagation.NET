@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
-using BackpropagationNXOR.Models.NeuralNetwork.Abstract;
-using BackpropagationNXOR.Models.Neurons;
-using BackpropagationNXOR.Models.Neurons.Abstract;
+using Backpropagation.NET.Models.ErrorFunctions.Abstract;
+using Backpropagation.NET.Models.NeuralNetwork.Abstract;
+using Backpropagation.NET.Models.Neurons;
+using Backpropagation.NET.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models.NeuralNetwork
+namespace Backpropagation.NET.Models.NeuralNetwork
 {
     public class NeuralNetwork : INeuralNetwork
     {

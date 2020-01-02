@@ -1,13 +1,13 @@
-﻿using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models.Neurons;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
-using BackpropagationNXOR.Models.Connections;
-using BackpropagationNXOR.Models.ErrorFunctions.Abstract;
-using BackpropagationNXOR.Models.NeuralNetwork;
+using Backpropagation.NET.Helpers;
+using Backpropagation.NET.Models.ActivationFunctions.Abstract;
+using Backpropagation.NET.Models.Connections;
+using Backpropagation.NET.Models.ErrorFunctions.Abstract;
+using Backpropagation.NET.Models.NeuralNetwork;
+using Backpropagation.NET.Models.Neurons;
 
-namespace BackpropagationNXOR.Builders
+namespace Backpropagation.NET.Builders
 {
     class NeuralNetworkBuilder
     {

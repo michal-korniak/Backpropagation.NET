@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BackpropagationNXOR.Helpers
+namespace Backpropagation.NET.Helpers
 {
     public static class RandomHelper
     {

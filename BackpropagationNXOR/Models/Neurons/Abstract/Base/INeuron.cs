@@ -1,4 +1,4 @@
-﻿namespace BackpropagationNXOR.Models.Neurons.Abstract.Base
+﻿namespace Backpropagation.NET.Models.Neurons.Abstract.Base
 {
     public interface INeuron
     {

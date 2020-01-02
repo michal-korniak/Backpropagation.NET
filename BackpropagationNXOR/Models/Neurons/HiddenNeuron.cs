@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using BackpropagationNXOR.Models.ActivationFunctions.Abstract;
-using BackpropagationNXOR.Models.Connections.Abstract;
-using BackpropagationNXOR.Models.Connections.Abstract.Base;
-using BackpropagationNXOR.Models.Neurons.Abstract;
+using Backpropagation.NET.Models.ActivationFunctions.Abstract;
+using Backpropagation.NET.Models.Connections.Abstract;
+using Backpropagation.NET.Models.Connections.Abstract.Base;
+using Backpropagation.NET.Models.Neurons.Abstract;
 
-namespace BackpropagationNXOR.Models.Neurons
+namespace Backpropagation.NET.Models.Neurons
 {
     public class HiddenNeuron : IHiddenNeuron
     {

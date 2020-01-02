@@ -1,8 +1,8 @@
-﻿using BackpropagationNXOR.Helpers;
-using BackpropagationNXOR.Models.Connections.Abstract;
-using BackpropagationNXOR.Models.Neurons.Abstract.Base;
+﻿using Backpropagation.NET.Helpers;
+using Backpropagation.NET.Models.Connections.Abstract;
+using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
-namespace BackpropagationNXOR.Models.Connections
+namespace Backpropagation.NET.Models.Connections
 {
     class NeuronConnection: INeuronConnection
     {

@@ -1,4 +1,4 @@
-﻿namespace BackpropagationNXOR.Training
+﻿namespace Backpropagation.NET.Training
 {
     public class TrainData
     {
