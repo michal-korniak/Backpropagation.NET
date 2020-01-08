@@ -15,7 +15,7 @@ namespace Backpropagation.NET
             var network = neuralNetworkBuilder
                 .AddBiasConnections()
                 .SetActivationFunction(new SigmoidActivationFunction())
-                .SetErrorFunction(new MeanSquaredErrorFunction())
+                .SetErrorFunction(new MeanSquaredErrorFunction(1))
                 .SetNumberOfInputNeurons(2)
                 .SetNumberOfHiddenNeurons(3)
                 .SetNumberOfOutputNeurons(1)
