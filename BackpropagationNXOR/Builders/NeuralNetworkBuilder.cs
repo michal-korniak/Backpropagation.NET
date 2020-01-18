@@ -80,7 +80,7 @@ namespace Backpropagation.NET.Builders
         {
             if (_errorFunction == null)
             {
-                throw new Exception("Error function have to be defined");
+                throw new Exception("Error function should be defined");
             }
             if (_numberOfInputNeurons <= 0)
             {
@@ -92,7 +92,7 @@ namespace Backpropagation.NET.Builders
             }
             if (_activationFunction == null)
             {
-                throw new Exception("Activation function should to be defined");
+                throw new Exception("Activation function should be defined");
             }
         }
         private List<InputNeuron> CreateInputLayer()
