@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Backpropagation.NET.Models.ErrorFunctions.Abstract;
 using Backpropagation.NET.Models.NeuralNetwork.Abstract;
@@ -29,6 +30,10 @@ namespace Backpropagation.NET.Models.NeuralNetwork
 
         public void FillInputNeurons(IEnumerable<double> input)
         {
+            if(input.Count() !=_inputLayer.Count)
+            {
+                throw new ArgumentException("Length of input collection is not equal to number of input neurons");
+            }
             for (int i = 0; i < input.Count(); ++i)
             {
                 InputLayer.ElementAt(i).Output = input.ElementAt(i);

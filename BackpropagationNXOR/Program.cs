@@ -22,7 +22,7 @@ namespace Backpropagation.NET
                 .Build();
 
 
-            var trainer = new Trainer(network, 0.1, new ConsoleLogger());
+            var trainer = new Trainer(neuralNetwork: network, learningRate: 0.01, logger: new ConsoleLogger());
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ 0, 0 },new double [] { 1 } ),
@@ -30,7 +30,7 @@ namespace Backpropagation.NET
                 new TrainData(new double []{ 0, 1 },new double [] { 0 } ),
                 new TrainData(new double []{ 1, 1 },new double [] { 1 } ),
             };
-            trainer.Train(trainDataCollection, 40000, 0.001);
+            trainer.Train(trainDataCollection, numberOfEpochs: 1000000, terminalEpochError:0.01);
 
 
             foreach(var trainData in trainDataCollection)
