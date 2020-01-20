@@ -1,6 +1,8 @@
 ﻿using System;
 using Backpropagation.NET.Builders;
+using Backpropagation.NET.Factories;
 using Backpropagation.NET.Loggers;
+using Backpropagation.NET.Loggers.Abstract;
 using Backpropagation.NET.Models.ActivationFunctions;
 using Backpropagation.NET.Models.ErrorFunctions;
 using Backpropagation.NET.Training;
@@ -9,12 +11,19 @@ namespace Backpropagation.NET
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            UnipolarNXORExample();
+            if (args.Length!=1)
+            {
+                throw new Exception("Invoke with logger name argument");
+            }
+            var loggerFactory = new LoggerFactory();
+            var logger = loggerFactory.Create(args[0]);
+
+            UnipolarNXORExample(logger);
             Console.ReadKey();
         }
-        static void UnipolarNXORExample()
+        static void UnipolarNXORExample(ILogger logger)
         {
             var neuralNetworkBuilder = new NeuralNetworkBuilder();
             var network = neuralNetworkBuilder
@@ -27,7 +36,7 @@ namespace Backpropagation.NET
                 .Build();
 
 
-            var trainer = new Trainer(neuralNetwork: network, learningRate: 0.01, logger: new QuickConsoleLogger());
+            var trainer = new Trainer(neuralNetwork: network, learningRate: 0.01, logger: logger);
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ 0, 0 },new double [] { 1 } ),
@@ -46,7 +55,7 @@ namespace Backpropagation.NET
             }
 
         }
-        static void BipolarNXORExample()
+        static void BipolarNXORExample(ILogger logger)
         {
             var neuralNetworkBuilder = new NeuralNetworkBuilder();
             var network = neuralNetworkBuilder
@@ -59,7 +68,7 @@ namespace Backpropagation.NET
                 .Build();
 
 
-            var trainer = new Trainer(neuralNetwork: network, learningRate: 0.01, logger: new ConsoleLogger());
+            var trainer = new Trainer(neuralNetwork: network, learningRate: 0.01, logger: logger);
             var trainDataCollection = new[]
             {
                 new TrainData(new double []{ -1, -1 },new double [] { 1 } ),

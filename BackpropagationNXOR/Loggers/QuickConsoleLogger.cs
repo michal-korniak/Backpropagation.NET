@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Backpropagation.NET.Loggers
 {
-    class QuickConsoleLogger : ILogger
+    class QuickLogger : ILogger
     {
         public void Info(string log)
         {

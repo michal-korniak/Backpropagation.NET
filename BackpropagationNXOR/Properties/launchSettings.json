@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Backpropagation.NET": {
+      "commandName": "Project",
+      "commandLineArgs": "quick"
+    }
+  }
+}
