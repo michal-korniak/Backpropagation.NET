@@ -26,8 +26,10 @@ namespace Backpropagation.NET.Training
 
             for (int i = 0; i < numberOfEpochs; ++i)
             {
+                _logger.Info($"Epoch {i + 1}");
                 var epochError = TrainForSingleEpoch(trainDataCollection);
-                _logger.Info($"Epoch {i+1}, error: {epochError}");
+                _logger.Info($"Epoch error: {epochError}");
+                _logger.Trace("___________________");
                 if (epochError <= terminalEpochError)
                 {
                     break;
@@ -56,12 +58,19 @@ namespace Backpropagation.NET.Training
             double totalEpochError = 0;
             foreach (var trainData in trainDataCollection)
             {
+                _logger.Trace("");
+                _logger.Trace($"Input: ({string.Join(",", trainData.Inputs)})");
                 _network.FillInputNeurons(trainData.Inputs);
                 HandleOutputLayer(trainData.ExpectedOutputs);
+                _logger.Trace($"Output: ({string.Join(",", _network.OutputLayer.Select(x=>x.Output))})");
+                _logger.Trace($"Expected: ({string.Join(",", trainData.ExpectedOutputs)})");
                 HandleHiddenLayer();
                 UpdateWeights();
-                totalEpochError += _network.OutputLayer.Sum(x => x.Error);
+                double iterationError= _network.OutputLayer.Sum(x => x.Error);
+                _logger.Trace($"Iteration error: {iterationError}");
+                totalEpochError += iterationError;
             }
+            _logger.Trace("");
             return totalEpochError;
 
         }

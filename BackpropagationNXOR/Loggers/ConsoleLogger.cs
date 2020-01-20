@@ -7,6 +7,10 @@ namespace Backpropagation.NET.Loggers
 {
     class ConsoleLogger: ILogger
     {
+        public void Trace(string log)
+        {
+            Console.WriteLine(log);
+        }
         public void Info(string log)
         {
             Console.WriteLine(log);
