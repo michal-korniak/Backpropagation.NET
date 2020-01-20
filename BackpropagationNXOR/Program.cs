@@ -46,14 +46,13 @@ namespace Backpropagation.NET
             };
             trainer.Train(trainDataCollection, numberOfEpochs: 100000, terminalEpochError: 0.01);
 
-
+            logger.Info("Test: ");
             foreach (var trainData in trainDataCollection)
             {
                 network.FillInputNeurons(trainData.Inputs);
                 var output = network.CalculateOutput();
-                Console.WriteLine($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
+                logger.Info($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
             }
-
         }
         static void BipolarNXORExample(ILogger logger)
         {
@@ -79,11 +78,12 @@ namespace Backpropagation.NET
             trainer.Train(trainDataCollection, numberOfEpochs: 100000, terminalEpochError: 0.01);
 
 
+            logger.Info("Test: ");
             foreach (var trainData in trainDataCollection)
             {
                 network.FillInputNeurons(trainData.Inputs);
                 var output = network.CalculateOutput();
-                Console.WriteLine($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
+                logger.Info($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
             }
 
         }
