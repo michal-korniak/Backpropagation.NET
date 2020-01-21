@@ -5,6 +5,7 @@ using Backpropagation.NET.Loggers;
 using Backpropagation.NET.Loggers.Abstract;
 using Backpropagation.NET.Models.ActivationFunctions;
 using Backpropagation.NET.Models.ErrorFunctions;
+using Backpropagation.NET.Models.NeuralNetwork;
 using Backpropagation.NET.Training;
 
 namespace Backpropagation.NET
@@ -13,16 +14,24 @@ namespace Backpropagation.NET
     {
         static void Main(string[] args)
         {
-            if (args.Length!=1)
+            ILogger logger = GetLoggerInstance(args);
+            BipolarNXORExample(logger);
+
+            Console.ReadKey();
+        }
+
+        private static ILogger GetLoggerInstance(string[] args)
+        {
+            if (args.Length != 1)
             {
                 throw new Exception("Invoke with logger name argument");
             }
             var loggerFactory = new LoggerFactory();
             var logger = loggerFactory.Create(args[0]);
 
-            UnipolarNXORExample(logger);
-            Console.ReadKey();
+            return logger;
         }
+
         static void UnipolarNXORExample(ILogger logger)
         {
             var neuralNetworkBuilder = new NeuralNetworkBuilder();
@@ -46,13 +55,7 @@ namespace Backpropagation.NET
             };
             trainer.Train(trainDataCollection, numberOfEpochs: 100000, terminalEpochError: 0.01);
 
-            logger.Info("Test: ");
-            foreach (var trainData in trainDataCollection)
-            {
-                network.FillInputNeurons(trainData.Inputs);
-                var output = network.CalculateOutput();
-                logger.Info($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
-            }
+            TestNetwork(network, trainDataCollection, logger);
         }
         static void BipolarNXORExample(ILogger logger)
         {
@@ -77,7 +80,12 @@ namespace Backpropagation.NET
             };
             trainer.Train(trainDataCollection, numberOfEpochs: 100000, terminalEpochError: 0.01);
 
+            TestNetwork(network, trainDataCollection,logger);
 
+        }
+
+        private static void TestNetwork(NeuralNetwork network, TrainData[] trainDataCollection, ILogger logger)
+        {
             logger.Info("Test: ");
             foreach (var trainData in trainDataCollection)
             {
@@ -85,7 +93,6 @@ namespace Backpropagation.NET
                 var output = network.CalculateOutput();
                 logger.Info($"F({string.Join(",", trainData.Inputs)})=({string.Join(",", output)}) [expected={string.Join(",", trainData.ExpectedOutputs)}]");
             }
-
         }
     }
 }
