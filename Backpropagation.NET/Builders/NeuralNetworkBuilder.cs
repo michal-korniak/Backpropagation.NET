@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Backpropagation.NET.Builders.Abstract;
 using Backpropagation.NET.Helpers;
 using Backpropagation.NET.Models.ActivationFunctions.Abstract;
 using Backpropagation.NET.Models.Connections;
@@ -9,7 +10,7 @@ using Backpropagation.NET.Models.Neurons;
 
 namespace Backpropagation.NET.Builders
 {
-    class NeuralNetworkBuilder
+    class NeuralNetworkBuilder : INeuralNetworkBuilder
     {
         private IErrorFunction _errorFunction;
         private IActivationFunction _activationFunction;

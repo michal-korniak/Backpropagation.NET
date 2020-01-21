@@ -7,7 +7,7 @@ using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
 namespace Backpropagation.NET.Training
 {
-    class Trainer
+    class Trainer : ITrainer
     {
         private readonly INeuralNetwork _network;
         private readonly double _learningRate;
@@ -62,11 +62,11 @@ namespace Backpropagation.NET.Training
                 _logger.Trace($"Input: ({string.Join(",", trainData.Inputs)})");
                 _network.FillInputNeurons(trainData.Inputs);
                 HandleOutputLayer(trainData.ExpectedOutputs);
-                _logger.Trace($"Output: ({string.Join(",", _network.OutputLayer.Select(x=>x.Output))})");
+                _logger.Trace($"Output: ({string.Join(",", _network.OutputLayer.Select(x => x.Output))})");
                 _logger.Trace($"Expected: ({string.Join(",", trainData.ExpectedOutputs)})");
                 HandleHiddenLayer();
                 UpdateWeights();
-                double iterationError= _network.OutputLayer.Sum(x => x.Error);
+                double iterationError = _network.OutputLayer.Sum(x => x.Error);
                 _logger.Trace($"Iteration error: {iterationError}");
                 totalEpochError += iterationError;
             }

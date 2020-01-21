@@ -1,4 +1,5 @@
-﻿using Backpropagation.NET.Loggers;
+﻿using Backpropagation.NET.Factories.Abstract;
+using Backpropagation.NET.Loggers;
 using Backpropagation.NET.Loggers.Abstract;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,11 @@ using System.Text;
 
 namespace Backpropagation.NET.Factories
 {
-    public class LoggerFactory
+    public class LoggerFactory : ILoggerFactory
     {
         public ILogger Create(string loggerName)
         {
-            switch(loggerName.ToLower())
+            switch (loggerName.ToLower())
             {
                 case "console":
                     return new ConsoleLogger();
