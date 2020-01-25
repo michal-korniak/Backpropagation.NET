@@ -10,7 +10,7 @@ using Backpropagation.NET.Models.Neurons;
 
 namespace Backpropagation.NET.Builders
 {
-    class NeuralNetworkBuilder : INeuralNetworkBuilder
+    public class NeuralNetworkBuilder : INeuralNetworkBuilder
     {
         private IErrorFunction _errorFunction;
         private IActivationFunction _activationFunction;

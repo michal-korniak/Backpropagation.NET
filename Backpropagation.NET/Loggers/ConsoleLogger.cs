@@ -5,7 +5,7 @@ using Backpropagation.NET.Loggers.Abstract;
 
 namespace Backpropagation.NET.Loggers
 {
-    class ConsoleLogger: ILogger
+    public class ConsoleLogger: ILogger
     {
         public void Trace(string log)
         {

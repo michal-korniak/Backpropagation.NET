@@ -7,7 +7,7 @@ using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
 namespace Backpropagation.NET.Training
 {
-    class Trainer : ITrainer
+    public class Trainer : ITrainer
     {
         private readonly INeuralNetwork _network;
         private readonly double _learningRate;
@@ -26,9 +26,8 @@ namespace Backpropagation.NET.Training
 
             for (int i = 0; i < numberOfEpochs; ++i)
             {
-                _logger.Info($"Epoch {i + 1}");
                 var epochError = TrainForSingleEpoch(trainDataCollection);
-                _logger.Info($"Epoch error: {epochError}");
+                _logger.Info($"Epoch {i + 1}, error: {epochError}");
                 _logger.Trace("___________________");
                 if (epochError <= terminalEpochError)
                 {

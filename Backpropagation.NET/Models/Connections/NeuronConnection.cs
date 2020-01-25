@@ -4,7 +4,7 @@ using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
 namespace Backpropagation.NET.Models.Connections
 {
-    class NeuronConnection: INeuronConnection
+    public class NeuronConnection: INeuronConnection
     {
         private readonly INeuron _source;
         private readonly INeuron _destination;

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Backpropagation.NET.Loggers
 {
-    class FileLogger : ILogger
+    public class FileLogger : ILogger
     {
         public FileLogger()
         {

@@ -5,7 +5,7 @@ using Backpropagation.NET.Models.Neurons.Abstract.Base;
 
 namespace Backpropagation.NET.Models.Connections
 {
-    class BiasConnection : IBiasConnection
+    public class BiasConnection : IBiasConnection
     {
         private readonly List<INeuron> _destinationNeurons = new List<INeuron>();
 

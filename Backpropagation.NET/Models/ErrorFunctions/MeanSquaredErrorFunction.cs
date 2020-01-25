@@ -3,7 +3,7 @@ using Backpropagation.NET.Models.ErrorFunctions.Abstract;
 
 namespace Backpropagation.NET.Models.ErrorFunctions
 {
-    class MeanSquaredErrorFunction : IErrorFunction
+    public class MeanSquaredErrorFunction : IErrorFunction
     {
         private readonly int _outputsNumber;
 

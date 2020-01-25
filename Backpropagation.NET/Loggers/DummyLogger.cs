@@ -5,16 +5,14 @@ using System.Text;
 
 namespace Backpropagation.NET.Loggers
 {
-    public class QuickLogger : ILogger
+    public class DummyLogger : ILogger
     {
         public void Info(string log)
         {
-            Console.WriteLine(log);
         }
 
         public void Trace(string log)
         {
-            //Ignore
         }
     }
 }
