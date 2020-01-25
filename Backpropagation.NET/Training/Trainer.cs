@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Backpropagation.NET.Loggers.Abstract;
 using Backpropagation.NET.Models.Connections.Abstract;
@@ -20,21 +21,27 @@ namespace Backpropagation.NET.Training
             _logger = logger;
         }
 
-        public void Train(TrainData[] trainDataCollection, int numberOfEpochs, double terminalEpochError)
+        public TrainStats Train(TrainData[] trainDataCollection, int numberOfEpochs, double terminalEpochError)
         {
             ValidateTrainData(trainDataCollection);
 
-            for (int i = 0; i < numberOfEpochs; ++i)
+            int i;
+            double epochError = -1;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            for (i = 0; i < numberOfEpochs; ++i)
             {
-                var epochError = TrainForSingleEpoch(trainDataCollection);
+                epochError = TrainForSingleEpoch(trainDataCollection);
                 _logger.Info($"Epoch {i + 1}, error: {epochError}");
                 _logger.Trace("___________________");
                 if (epochError <= terminalEpochError)
                 {
                     break;
                 }
-
             }
+            stopwatch.Stop();
+
+            return new TrainStats(i, epochError, (double)stopwatch.ElapsedMilliseconds / 1000);
         }
         private void ValidateTrainData(TrainData[] trainDataCollection)
         {

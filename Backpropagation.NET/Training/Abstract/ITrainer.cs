@@ -2,6 +2,6 @@
 {
     interface ITrainer
     {
-        void Train(TrainData[] trainDataCollection, int numberOfEpochs, double terminalEpochError);
+        TrainStats Train(TrainData[] trainDataCollection, int numberOfEpochs, double terminalEpochError);
     }
 }
