@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Runner.ArchitectureTest
+namespace Runner.ArchitectureTest.UnipolarNXORArchitectureTest
 {
     public class UnipolarNXORArchitectureTest
     {
@@ -58,7 +58,6 @@ namespace Runner.ArchitectureTest
                 Console.WriteLine();
             }
         }
-
         private IEnumerable<TrainStats> TestConfiguration(ArchitectureTestConfig config)
         {
             var trainStatsCollection = new ConcurrentBag<TrainStats>();
@@ -69,6 +68,7 @@ namespace Runner.ArchitectureTest
 
             return trainStatsCollection;
         }
+
         private TrainStats ExecuteSingleIteration(ArchitectureTestConfig config)
         {
             var neuralNetworkBuilder = new NeuralNetworkBuilder()
